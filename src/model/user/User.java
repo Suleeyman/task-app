@@ -1,14 +1,16 @@
 package model.user;
 
-public abstract class User {
-    private static int idCounter = 1; // Static field to track IDs
+import model.IEntity;
+
+public abstract class User implements IEntity {
+    private static int counterId = 1; // Static field to track IDs
     private int id;
     private String name;
     private Role role;
 
     // Constructeur
     public User(String name, Role role) {
-        this.id = idCounter++; // Assign the current value and increment
+        this.id = counterId++; // Assign the current value and increment
         this.name = name;
         this.role = role;
     }

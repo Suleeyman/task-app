@@ -1,9 +1,10 @@
 package model.task;
 
+import model.IEntity;
 import model.user.User;
 
-public class Task {
-    private static int idCounter = 1; // Static field to track IDs
+public abstract class Task implements IEntity {
+    private static int counterId = 1; // Static field to track IDs
     private int id;
     private String title;
     private String description;
@@ -13,16 +14,12 @@ public class Task {
 
     // Constructeur
     public Task(String title, String description, Priority priority, Status status, User assignedUser) {
-        this.id = idCounter++; // Assign the current value and increment
+        this.id = counterId++; // Assign the current value and increment
         this.title = title;
         this.description = description;
         this.priority = priority;
         this.status = status; // Par défaut, le statut est EN_ATTENTE
         this.assignedUser = assignedUser; // Utilisateur associé à la tâche
-    }
-
-    public Task(String title, String description, Priority priority, User assignedUser) {
-        this(title, description, priority, Status.EN_ATTENTE, assignedUser);
     }
 
     // Getters
