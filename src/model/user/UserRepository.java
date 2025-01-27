@@ -37,14 +37,23 @@ public class UserRepository implements IRepository<User> {
         return null;
     }
 
+    public User getByName(String name) {
+        for (User user : entities) {
+            if (user.getName() == name) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     @Override
     public ArrayList<User> getAll() {
         return new ArrayList<>(entities); // Retourne une copie de la liste des entités
     }
 
     @Override
-    public void deleteById(int id) {
-        entities.removeIf(entity -> entity.getId() == id); // Supprime les entités correspondant à l'ID
+    public boolean deleteById(int id) {
+        return entities.removeIf(entity -> entity.getId() == id); // Supprime les entités correspondant à l'ID
     }
 
     @Override

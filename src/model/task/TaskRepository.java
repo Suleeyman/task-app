@@ -44,8 +44,8 @@ public class TaskRepository implements IRepository<Task> {
     }
 
     @Override
-    public void deleteById(int id) {
-        entities.removeIf(task -> task.getId() == id); // Supprime la tâche par ID
+    public boolean deleteById(int id) {
+        return entities.removeIf(task -> task.getId() == id); // Supprime la tâche par ID
     }
 
     @Override

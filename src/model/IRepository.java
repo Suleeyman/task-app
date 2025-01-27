@@ -9,7 +9,7 @@ public interface IRepository<T extends IEntity> {
 
     ArrayList<T> getAll();
 
-    void deleteById(int id);
+    boolean deleteById(int id);
 
     T updateById(int id, T entity);
 }

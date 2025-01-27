@@ -23,4 +23,8 @@ public class AuthView {
         }
     }
 
+    public void printExit(int choice) {
+        System.out.println("[" + choice + "] " + "Quitter le programme");
+    }
+
 }

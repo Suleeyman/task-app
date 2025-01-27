@@ -2,17 +2,21 @@ package model.user;
 
 import model.IEntity;
 
+import java.util.List;
+
 public abstract class User implements IEntity {
     private static int counterId = 1; // Static field to track IDs
     private int id;
     private String name;
     private Role role;
+    private List<Permission> permissions;
 
     // Constructeur
-    public User(String name, Role role) {
+    public User(String name, Role role, List<Permission> permissions) {
         this.id = counterId++; // Assign the current value and increment
         this.name = name;
         this.role = role;
+        this.permissions = permissions;
     }
 
     // Getters
@@ -28,15 +32,12 @@ public abstract class User implements IEntity {
         return role;
     }
 
-    // Setters
-    public User setName(String name) {
-        this.name = name;
-        return this;
+    public List<Permission> getPermissions() {
+        return permissions;
     }
 
-    public User setRole(Role role) {
-        this.role = role;
-        return this;
+    public boolean hasPermission(Permission permission) {
+        return permissions.contains(permission);
     }
 
     @Override
@@ -46,5 +47,9 @@ public abstract class User implements IEntity {
                 ",\n\r\tname='" + name + '\'' +
                 ",\n\r\trole='" + role + '\'' +
                 "\n\r}";
+    }
+
+    public boolean isAdmin() {
+        return role == Role.ADMIN;
     }
 }

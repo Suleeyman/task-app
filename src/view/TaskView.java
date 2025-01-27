@@ -11,9 +11,12 @@ public class TaskView {
         System.out.println("--------------------------");
         for (Task task : tasks) {
             System.out.println("[" + task.getId() + "] " + task.getTitle());
-            System.out.println("(description) " + task.getDescription());
             System.out.println("Priorité : " + task.getPriority() + "\tÉtat : " + task.getStatus() + "\tAttribué à l'utilisateur ID : " + task.getAssignedUser().getName());
             System.out.println("---------------------------------");
         }
+    }
+
+    public void showMessage(String msg) {
+        System.out.println(msg);
     }
 }

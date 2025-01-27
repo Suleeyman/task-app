@@ -7,16 +7,14 @@ public abstract class Task implements IEntity {
     private static int counterId = 1; // Static field to track IDs
     private int id;
     private String title;
-    private String description;
     private Priority priority;
     private Status status;
     private User assignedUser; // Référence à l'utilisateur associé
 
     // Constructeur
-    public Task(String title, String description, Priority priority, Status status, User assignedUser) {
+    public Task(String title, Priority priority, Status status, User assignedUser) {
         this.id = counterId++; // Assign the current value and increment
         this.title = title;
-        this.description = description;
         this.priority = priority;
         this.status = status; // Par défaut, le statut est EN_ATTENTE
         this.assignedUser = assignedUser; // Utilisateur associé à la tâche
@@ -31,9 +29,6 @@ public abstract class Task implements IEntity {
         return title;
     }
 
-    public String getDescription() {
-        return description;
-    }
 
     public Priority getPriority() {
         return priority;
@@ -50,11 +45,6 @@ public abstract class Task implements IEntity {
     // Setters avec retour de `this`
     public Task setTitle(String title) {
         this.title = title;
-        return this;
-    }
-
-    public Task setDescription(String description) {
-        this.description = description;
         return this;
     }
 
@@ -78,7 +68,6 @@ public abstract class Task implements IEntity {
         return "Task{" +
                 "\n\r\tid=" + id +
                 ",\n\r\ttitle='" + title + '\'' +
-                ",\n\r\tdescription='" + description + '\'' +
                 ",\n\r\tpriority=" + (priority) +
                 ",\n\r\tstatus=" + status +
                 ",\n\r\tassignedUser=" + (assignedUser != null ? assignedUser.getName() : "Aucun") +
