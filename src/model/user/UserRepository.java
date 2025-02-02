@@ -39,7 +39,7 @@ public class UserRepository implements IRepository<User> {
 
     public User getByName(String name) {
         for (User user : entities) {
-            if (user.getName() == name) {
+            if (user.getName().toLowerCase().trim().equals(name.toLowerCase().trim())) {
                 return user;
             }
         }

@@ -10,4 +10,8 @@ public class UserView {
             System.out.println(user);
         }
     }
+
+    public void showUserPermissions(User user) {
+        System.out.println(user.getPermissions());
+    }
 }

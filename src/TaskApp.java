@@ -9,9 +9,15 @@ import model.user.Developer;
 import model.user.UserRepository;
 import view.ConsoleView;
 
+/**
+ * Application
+ */
 public class TaskApp {
 
 
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
         loadAppData();
         Model model = new Model();
@@ -24,6 +30,10 @@ public class TaskApp {
         controller.processMenu(new AuthenticationController(model.getUserRepository()));
     }
 
+
+    /**
+     * Charge les données utiles pour l'application
+     */
     public static void loadAppData() {
         UserRepository uRepo = UserRepository.getInstance();
         TaskRepository tRepo = TaskRepository.getInstance();
